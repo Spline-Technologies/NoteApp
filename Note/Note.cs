@@ -8,7 +8,7 @@ public class Note
 
 	private string _title;
 
-	private string Title
+	public string Title
 	{
 		get => _title;
 		set
@@ -23,13 +23,13 @@ public class Note
 		}
 	}
 
-	private NoteCategory Category { get; set; }
+	public NoteCategory Category { get; set; }
 
-	private DateTime CreationTime { get; init; }
+	public DateTime CreationTime { get; }
 
-	private DateTime LastModifyTime { get; set; }
+	public DateTime LastModifyTime { get; private set; }
 
-	private StringBuilder NoteText { get; set; }
+	public StringBuilder NoteText { get; set; }
 
 	public Note()
 	{
