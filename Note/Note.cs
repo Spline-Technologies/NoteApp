@@ -37,5 +37,6 @@ internal class Note
 		Category = NoteCategory.Work;
 		CreationTime = DateTime.Now;
 		LastModifyTime = DateTime.Now;
+		NoteText = new StringBuilder();
 	}
 }
