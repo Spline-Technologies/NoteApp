@@ -1,6 +1,8 @@
-﻿using System.Text;
+﻿namespace Note;
 
-namespace Note;
+
+using System.Text;
+
 
 public class Note
 {
@@ -31,6 +33,7 @@ public class Note
 
 	public StringBuilder NoteText { get; set; }
 
+	
 	public Note()
 	{
 		Title = "Без названия";
