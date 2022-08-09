@@ -14,7 +14,7 @@ internal class Note
 		set
 		{
 			if (string.IsNullOrWhiteSpace(value))
-				throw new ArgumentNullException("Note title can't be empty");
+				throw new ArgumentNullException(nameof(Title));
 
 			if (value.Length > MaxTitleLength)
 				throw new ArgumentException("Note title can't be longer than 50 symbols");
