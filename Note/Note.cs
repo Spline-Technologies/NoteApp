@@ -2,13 +2,13 @@
 
 namespace Note;
 
-internal class Note
+public class Note
 {
 	private const int MaxTitleLength = 50;
 
 	private string _title;
 
-	public string Title
+	private string Title
 	{
 		get => _title;
 		set
