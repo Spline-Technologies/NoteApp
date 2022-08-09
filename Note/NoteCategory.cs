@@ -1,5 +1,6 @@
 ﻿namespace Note;
 
+
 public enum NoteCategory
 {
 	Work,
