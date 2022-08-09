@@ -1,4 +1,6 @@
-﻿enum NoteCategory
+﻿namespace Note;
+
+public enum NoteCategory
 {
 	Work,
 	Home,
