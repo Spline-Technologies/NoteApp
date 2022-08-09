@@ -6,7 +6,7 @@ internal class Note
 {
 	private const int MaxTitleLength = 50;
 
-	private string _title = "Без названия";
+	private string _title;
 
 	public string Title
 	{
@@ -14,20 +14,28 @@ internal class Note
 		set
 		{
 			if (string.IsNullOrWhiteSpace(value))
-				throw new ArgumentNullException("value");
+				throw new ArgumentNullException("Note title can't be empty");
 
 			if (value.Length > MaxTitleLength)
-				throw new ArgumentException("value");
+				throw new ArgumentException("Note title can't be longer than 50 symbols");
 
 			_title = value;
 		}
 	}
 
-	private NoteCategory Category { get; set; } = NoteCategory.Work;
+	private NoteCategory Category { get; set; }
 
 	private DateTime CreationTime { get; init; }
 
 	private DateTime LastModifyTime { get; set; }
 
 	private StringBuilder NoteText { get; set; }
+
+	public Note()
+	{
+		Title = "Без названия";
+		Category = NoteCategory.Work;
+		CreationTime = DateTime.Now;
+		LastModifyTime = DateTime.Now;
+	}
 }
