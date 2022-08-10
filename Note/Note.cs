@@ -1,4 +1,4 @@
-﻿namespace Note;
+﻿namespace NoteApp;
 
 
 using System.Text;

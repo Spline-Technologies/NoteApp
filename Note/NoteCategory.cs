@@ -1,4 +1,4 @@
-﻿namespace Note;
+﻿namespace NoteApp;
 
 
 public enum NoteCategory
