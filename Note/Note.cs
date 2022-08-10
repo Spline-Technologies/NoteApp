@@ -50,19 +50,12 @@ public class Note : ICloneable
 		LastModifyTime = DateTime.Now;
 		NoteText = "";
 	}
-	
-	public void Serialize()
+
+	public object Clone() => new Note
 	{
-		var options = new JsonSerializerOptions
-		{
-			WriteIndented = true,
-			Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic)
-		};
-		
-		using (FileStream file = new FileStream("Note.json", FileMode.OpenOrCreate))
-		{
-			//JsonSerializer.SerializeToDocument(this, options);
-			JsonSerializer.Serialize<Note>(file, this, options);
-		}
-	}
+		Title = Title,
+		Category = Category,
+		LastModifyTime = DateTime.Now,
+		NoteText = NoteText.Clone().ToString()
+	};
 }
