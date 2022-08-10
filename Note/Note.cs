@@ -19,7 +19,7 @@ public class Note
 				throw new ArgumentNullException(nameof(Title));
 
 			if (value.Length > MaxTitleLength)
-				throw new ArgumentException("Note title can't be longer than 50 symbols");
+				throw new ArgumentException("Note title is longer than 50 symbols");
 
 			_title = value;
 		}
