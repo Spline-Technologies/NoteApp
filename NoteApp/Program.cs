@@ -1,4 +1,4 @@
-namespace NoteApp
+namespace NoteAppUI
 {
     internal static class Program
     {

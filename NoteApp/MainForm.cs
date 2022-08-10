@@ -1,4 +1,4 @@
-namespace NoteApp
+namespace NoteAppUI
 {
     public partial class MainForm : Form
     {
