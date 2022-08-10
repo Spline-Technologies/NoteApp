@@ -1,10 +1,14 @@
-﻿namespace NoteApp;
+﻿using System.Text.Encodings.Web;
+using System.Text.Unicode;
+
+namespace NoteApp;
 
 
 using System.Text;
+using System.Text.Json;
 
 
-public class Note
+public class Note : ISerializer, IDeserializer
 {
 	private const int MaxTitleLength = 50;
 
@@ -41,5 +45,20 @@ public class Note
 		CreationTime = DateTime.Now;
 		LastModifyTime = DateTime.Now;
 		NoteText = new StringBuilder();
+	}
+	
+	public void Serialize()
+	{
+		var options = new JsonSerializerOptions
+		{
+			WriteIndented = true,
+			Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic)
+		};
+		
+		using (FileStream file = new FileStream("Note.json", FileMode.OpenOrCreate))
+		{
+			//JsonSerializer.SerializeToDocument(this, options);
+			JsonSerializer.Serialize<Note>(file, this, options);
+		}
 	}
 }
