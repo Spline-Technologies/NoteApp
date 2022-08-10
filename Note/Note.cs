@@ -1,18 +1,11 @@
-﻿using System.Text.Encodings.Web;
-using System.Text.Unicode;
+﻿namespace NoteApp;
 
-namespace NoteApp;
-
-
-using System.Text;
-using System.Text.Json;
-
-
-public class Note : ISerializer, IDeserializer
+public class Note : ICloneable
 {
 	private const int MaxTitleLength = 50;
 
 	private string _title;
+	private string _noteText;
 
 	public string Title
 	{
@@ -23,7 +16,8 @@ public class Note : ISerializer, IDeserializer
 				throw new ArgumentNullException(nameof(Title));
 
 			if (value.Length > MaxTitleLength)
-				throw new ArgumentException("Note title is longer than 50 symbols");
+				throw new ArgumentException(
+					"Note title is longer than 50 symbols");
 
 			_title = value;
 		}
@@ -35,16 +29,26 @@ public class Note : ISerializer, IDeserializer
 
 	public DateTime LastModifyTime { get; private set; }
 
-	public StringBuilder NoteText { get; set; }
+	public string NoteText
+	{
+		get => _noteText;
+		set
+		{
+			_noteText = value ??
+			            throw new ArgumentNullException(nameof(NoteText));
 
-	
+			LastModifyTime = DateTime.Now;
+		}
+	}
+
+
 	public Note()
 	{
 		Title = "Без названия";
 		Category = NoteCategory.Work;
 		CreationTime = DateTime.Now;
 		LastModifyTime = DateTime.Now;
-		NoteText = new StringBuilder();
+		NoteText = "";
 	}
 	
 	public void Serialize()
