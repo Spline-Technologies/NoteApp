@@ -6,6 +6,7 @@ public class Note : ICloneable
 
 	private string _title;
 	private string _noteText;
+	private NoteCategory _category;
 
 	public string Title
 	{
@@ -20,10 +21,19 @@ public class Note : ICloneable
 					"Note title is longer than 50 symbols");
 
 			_title = value;
+			LastModifyTime = DateTime.Now;
 		}
 	}
 
-	public NoteCategory Category { get; set; }
+	public NoteCategory Category
+	{
+		get => _category;
+		set
+		{
+			_category = value;
+			LastModifyTime = DateTime.Now;
+		}
+	}
 
 	public DateTime CreationTime { get; }
 
