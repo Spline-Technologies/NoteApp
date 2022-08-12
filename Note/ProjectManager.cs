@@ -4,7 +4,7 @@ namespace NoteApp;
 
 public static class ProjectManager
 {
-	private const string Path = "NoteApp.notes";
+	private const string Path = "../../../../NoteApp.notes";
 
 	public static void Serialize(Project project)
 	{
