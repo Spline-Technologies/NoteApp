@@ -1,4 +1,6 @@
-﻿namespace NoteAppUI
+﻿using NoteApp;
+
+namespace NoteAppUI
 {
     partial class MainForm
     {
@@ -28,43 +30,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.addNewNoteButton = new System.Windows.Forms.Button();
             this.categoryTypeComboBox = new System.Windows.Forms.ComboBox();
             this.categoryTypeLabel = new System.Windows.Forms.Label();
             this.noteListBox = new System.Windows.Forms.ListBox();
-            this.noteTextBox = new System.Windows.Forms.TextBox();
-            this.noteNameLabel = new System.Windows.Forms.Label();
-            this.createdTextLabel = new System.Windows.Forms.Label();
-            this.createdDateLabel = new System.Windows.Forms.Label();
-            this.modifiedTextLAbel = new System.Windows.Forms.Label();
             this.modifiedDateLabel = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.modifiedTextLAbel = new System.Windows.Forms.Label();
+            this.createdDateLabel = new System.Windows.Forms.Label();
+            this.createdTextLabel = new System.Windows.Forms.Label();
+            this.noteTitleLabel = new System.Windows.Forms.Label();
+            this.noteTextBox = new System.Windows.Forms.TextBox();
+            this.mainMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
+            this.mainSplitContainer.Panel1.SuspendLayout();
+            this.mainSplitContainer.Panel2.SuspendLayout();
+            this.mainSplitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // mainMenuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1124, 33);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuStrip.Name = "mainMenuStrip";
+            this.mainMenuStrip.Size = new System.Drawing.Size(1124, 33);
+            this.mainMenuStrip.TabIndex = 0;
+            this.mainMenuStrip.Text = "mainMenuStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -108,30 +110,30 @@
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(164, 34);
             this.aboutToolStripMenuItem1.Text = "About";
             // 
-            // splitContainer1
+            // mainSplitContainer
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 33);
-            this.splitContainer1.Name = "splitContainer1";
+            this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 33);
+            this.mainSplitContainer.Name = "mainSplitContainer";
             // 
-            // splitContainer1.Panel1
+            // mainSplitContainer.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.addNewNoteButton);
-            this.splitContainer1.Panel1.Controls.Add(this.categoryTypeComboBox);
-            this.splitContainer1.Panel1.Controls.Add(this.categoryTypeLabel);
-            this.splitContainer1.Panel1.Controls.Add(this.noteListBox);
+            this.mainSplitContainer.Panel1.Controls.Add(this.addNewNoteButton);
+            this.mainSplitContainer.Panel1.Controls.Add(this.categoryTypeComboBox);
+            this.mainSplitContainer.Panel1.Controls.Add(this.categoryTypeLabel);
+            this.mainSplitContainer.Panel1.Controls.Add(this.noteListBox);
             // 
-            // splitContainer1.Panel2
+            // mainSplitContainer.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.modifiedDateLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.modifiedTextLAbel);
-            this.splitContainer1.Panel2.Controls.Add(this.createdDateLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.createdTextLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.noteNameLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.noteTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(1124, 512);
-            this.splitContainer1.SplitterDistance = 370;
-            this.splitContainer1.TabIndex = 1;
+            this.mainSplitContainer.Panel2.Controls.Add(this.modifiedDateLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.modifiedTextLAbel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.createdDateLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.createdTextLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.noteTitleLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.noteTextBox);
+            this.mainSplitContainer.Size = new System.Drawing.Size(1124, 512);
+            this.mainSplitContainer.SplitterDistance = 370;
+            this.mainSplitContainer.TabIndex = 1;
             // 
             // addNewNoteButton
             // 
@@ -141,6 +143,7 @@
             this.addNewNoteButton.TabIndex = 3;
             this.addNewNoteButton.Text = "Add new note";
             this.addNewNoteButton.UseVisualStyleBackColor = true;
+            this.addNewNoteButton.Click += new System.EventHandler(this.addNewNoteButton_Click);
             // 
             // categoryTypeComboBox
             // 
@@ -167,51 +170,7 @@
             this.noteListBox.Name = "noteListBox";
             this.noteListBox.Size = new System.Drawing.Size(367, 404);
             this.noteListBox.TabIndex = 0;
-            // 
-            // noteTextBox
-            // 
-            this.noteTextBox.Location = new System.Drawing.Point(20, 96);
-            this.noteTextBox.Multiline = true;
-            this.noteTextBox.Name = "noteTextBox";
-            this.noteTextBox.Size = new System.Drawing.Size(715, 404);
-            this.noteTextBox.TabIndex = 0;
-            // 
-            // noteNameLabel
-            // 
-            this.noteNameLabel.AutoSize = true;
-            this.noteNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.noteNameLabel.Location = new System.Drawing.Point(20, 16);
-            this.noteNameLabel.Name = "noteNameLabel";
-            this.noteNameLabel.Size = new System.Drawing.Size(122, 30);
-            this.noteNameLabel.TabIndex = 1;
-            this.noteNameLabel.Text = "NoteName";
-            // 
-            // createdTextLabel
-            // 
-            this.createdTextLabel.AutoSize = true;
-            this.createdTextLabel.Location = new System.Drawing.Point(20, 53);
-            this.createdTextLabel.Name = "createdTextLabel";
-            this.createdTextLabel.Size = new System.Drawing.Size(77, 25);
-            this.createdTextLabel.TabIndex = 2;
-            this.createdTextLabel.Text = "Created:";
-            // 
-            // createdDateLabel
-            // 
-            this.createdDateLabel.AutoSize = true;
-            this.createdDateLabel.Location = new System.Drawing.Point(103, 53);
-            this.createdDateLabel.Name = "createdDateLabel";
-            this.createdDateLabel.Size = new System.Drawing.Size(80, 25);
-            this.createdDateLabel.TabIndex = 3;
-            this.createdDateLabel.Text = "01.01.22";
-            // 
-            // modifiedTextLAbel
-            // 
-            this.modifiedTextLAbel.AutoSize = true;
-            this.modifiedTextLAbel.Location = new System.Drawing.Point(231, 53);
-            this.modifiedTextLAbel.Name = "modifiedTextLAbel";
-            this.modifiedTextLAbel.Size = new System.Drawing.Size(88, 25);
-            this.modifiedTextLAbel.TabIndex = 4;
-            this.modifiedTextLAbel.Text = "Modified:";
+            this.noteListBox.SelectedIndexChanged += new System.EventHandler(this.noteListBox_SelectedIndexChanged);
             // 
             // modifiedDateLabel
             // 
@@ -222,24 +181,70 @@
             this.modifiedDateLabel.TabIndex = 5;
             this.modifiedDateLabel.Text = "02.01.22";
             // 
+            // modifiedTextLAbel
+            // 
+            this.modifiedTextLAbel.AutoSize = true;
+            this.modifiedTextLAbel.Location = new System.Drawing.Point(231, 53);
+            this.modifiedTextLAbel.Name = "modifiedTextLAbel";
+            this.modifiedTextLAbel.Size = new System.Drawing.Size(88, 25);
+            this.modifiedTextLAbel.TabIndex = 4;
+            this.modifiedTextLAbel.Text = "Modified:";
+            // 
+            // createdDateLabel
+            // 
+            this.createdDateLabel.AutoSize = true;
+            this.createdDateLabel.Location = new System.Drawing.Point(103, 53);
+            this.createdDateLabel.Name = "createdDateLabel";
+            this.createdDateLabel.Size = new System.Drawing.Size(80, 25);
+            this.createdDateLabel.TabIndex = 3;
+            this.createdDateLabel.Text = "01.01.22";
+            // 
+            // createdTextLabel
+            // 
+            this.createdTextLabel.AutoSize = true;
+            this.createdTextLabel.Location = new System.Drawing.Point(20, 53);
+            this.createdTextLabel.Name = "createdTextLabel";
+            this.createdTextLabel.Size = new System.Drawing.Size(77, 25);
+            this.createdTextLabel.TabIndex = 2;
+            this.createdTextLabel.Text = "Created:";
+            // 
+            // noteTitleLabel
+            // 
+            this.noteTitleLabel.AutoSize = true;
+            this.noteTitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.noteTitleLabel.Location = new System.Drawing.Point(20, 16);
+            this.noteTitleLabel.Name = "noteTitleLabel";
+            this.noteTitleLabel.Size = new System.Drawing.Size(107, 30);
+            this.noteTitleLabel.TabIndex = 1;
+            this.noteTitleLabel.Text = "NoteTitle";
+            // 
+            // noteTextBox
+            // 
+            this.noteTextBox.Location = new System.Drawing.Point(20, 96);
+            this.noteTextBox.Multiline = true;
+            this.noteTextBox.Name = "noteTextBox";
+            this.noteTextBox.Size = new System.Drawing.Size(715, 404);
+            this.noteTextBox.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 545);
-            this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.mainSplitContainer);
+            this.Controls.Add(this.mainMenuStrip);
+            this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
             this.Text = "NoteApp";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.mainMenuStrip.ResumeLayout(false);
+            this.mainMenuStrip.PerformLayout();
+            this.mainSplitContainer.Panel1.ResumeLayout(false);
+            this.mainSplitContainer.Panel1.PerformLayout();
+            this.mainSplitContainer.Panel2.ResumeLayout(false);
+            this.mainSplitContainer.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
+            this.mainSplitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,11 +252,11 @@
 
         #endregion
 
-        private MenuStrip menuStrip1;
+        private MenuStrip mainMenuStrip;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
-        private SplitContainer splitContainer1;
+        private SplitContainer mainSplitContainer;
         private ComboBox categoryTypeComboBox;
         private Label categoryTypeLabel;
         private ListBox noteListBox;
@@ -264,6 +269,6 @@
         private Label modifiedTextLAbel;
         private Label createdDateLabel;
         private Label createdTextLabel;
-        private Label noteNameLabel;
+        private Label noteTitleLabel;
     }
 }

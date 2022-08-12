@@ -1,3 +1,5 @@
+global using NoteApp;
+
 namespace NoteAppUI
 {
     internal static class Program
