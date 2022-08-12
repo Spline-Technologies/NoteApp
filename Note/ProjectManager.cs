@@ -13,16 +13,16 @@ public static class ProjectManager
 
 		string contents = JsonConvert.SerializeObject(
 			project.Notes, Formatting.Indented, settings);
-		
+
 		File.WriteAllText(Path, contents);
 	}
 
-	/// <summary>
-	/// должна сама находить .json и конвертировать
-	/// </summary>
-	/// <returns>класс со списком всех Note</returns>
 	public static Project Deserialize()
 	{
-		return new Project();
+		return new Project
+		{
+			Notes = JsonConvert.DeserializeObject<List<Note>>
+				(File.ReadAllText(Path))
+		};
 	}
 }
