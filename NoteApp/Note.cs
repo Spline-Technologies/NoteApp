@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 
+/// <summary>
+/// Main class, that contains note data
+/// </summary>
 public class Note : ICloneable
 {
 	private const int MaxTitleLength = 50;
@@ -13,6 +16,11 @@ public class Note : ICloneable
 	private string _noteText;
 	private NoteCategory _category;
 
+	/// <summary>
+	/// Head text of note
+	/// </summary>
+	/// <exception cref="ArgumentNullException">new value is null</exception>
+	/// <exception cref="ArgumentException">The title is too long (51 and more)</exception>
 	public string Title
 	{
 		get => _title;
@@ -30,6 +38,9 @@ public class Note : ICloneable
 		}
 	}
 
+	/// <summary>
+	/// Category of note
+	/// </summary>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public NoteCategory Category
 	{
@@ -41,10 +52,22 @@ public class Note : ICloneable
 		}
 	}
 
+	/// <summary>
+	/// Date and time of note creation;
+	/// format dd.MM.yyyy HH:mm:ss
+	/// </summary>
 	public DateTime CreationTime { get; }
 
+	/// <summary>
+	/// Date and time of last note modification;
+	/// format dd.MM.yyyy HH:mm:ss
+	/// </summary>
 	public DateTime LastModifyTime { get; private set; }
 
+	/// <summary>
+	/// Body text of note
+	/// </summary>
+	/// <exception cref="ArgumentNullException">new value is null</exception>
 	public string NoteText
 	{
 		get => _noteText;
@@ -72,6 +95,6 @@ public class Note : ICloneable
 		Title = Title,
 		Category = Category,
 		LastModifyTime = DateTime.Now,
-		NoteText = NoteText.Clone().ToString()
+		NoteText = NoteText
 	};
 }
