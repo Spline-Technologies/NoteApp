@@ -1,5 +1,10 @@
 ﻿namespace NoteApp;
 
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+
 public class Note : ICloneable
 {
 	private const int MaxTitleLength = 50;
@@ -25,6 +30,7 @@ public class Note : ICloneable
 		}
 	}
 
+	[JsonConverter(typeof(StringEnumConverter))]
 	public NoteCategory Category
 	{
 		get => _category;

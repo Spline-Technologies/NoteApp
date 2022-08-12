@@ -2,7 +2,7 @@
 
 public class Project
 {
-	public List<Note> Notes { get; }
+	public List<Note> Notes { get; init; }
 
 	public Project()
 	{
