@@ -51,5 +51,10 @@ namespace NoteAppUI
                 Convert.ToString(_selectedNote.LastModifyTime);
             noteTextBox.Text = Convert.ToString(_selectedNote.NoteText);
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutForm();
+        }
     }
 }
