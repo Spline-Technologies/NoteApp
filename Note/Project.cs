@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Note
+namespace NoteCore
 {
 	/// <summary>
 	/// Class with list of notes

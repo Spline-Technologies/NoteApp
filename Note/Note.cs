@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Note
+namespace NoteCore
 {
 	/// <summary>
     /// Main class, that contains note data

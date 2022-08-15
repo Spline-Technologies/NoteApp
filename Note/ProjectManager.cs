@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 
 
-namespace Note
+namespace NoteCore
 {
 	/// <summary>
 	/// Convert list of notes to the file and back

@@ -1,4 +1,4 @@
-﻿namespace Note
+﻿namespace NoteCore
 {
 	/// <summary>
 	/// Enumeration of note category; 0-6 
