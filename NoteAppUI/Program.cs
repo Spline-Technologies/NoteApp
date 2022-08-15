@@ -1,4 +1,4 @@
-global using NoteCore;
+global using NoteAppCore;
 
 namespace NoteAppUI
 {

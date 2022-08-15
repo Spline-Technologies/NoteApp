@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Note\Note.csproj" />
+    <ProjectReference Include="..\Note\NoteAppCore.csproj" />
   </ItemGroup>
 
 </Project>
