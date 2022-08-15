@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteAppUI", "NoteAppUI\Note
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteAppCore", "Note\NoteAppCore.csproj", "{A8CB219B-EA4D-4786-AEA3-93482971D77A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleDrive", "GoogleDrive\GoogleDrive.csproj", "{F9D14C2D-A289-4885-B108-0BB34C97ECD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A8CB219B-EA4D-4786-AEA3-93482971D77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8CB219B-EA4D-4786-AEA3-93482971D77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8CB219B-EA4D-4786-AEA3-93482971D77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D14C2D-A289-4885-B108-0BB34C97ECD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D14C2D-A289-4885-B108-0BB34C97ECD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D14C2D-A289-4885-B108-0BB34C97ECD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D14C2D-A289-4885-B108-0BB34C97ECD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
