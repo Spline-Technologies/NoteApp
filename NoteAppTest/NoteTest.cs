@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal;
+using Assert = NUnit.Framework.Assert;
 
 namespace NoteAppTest
 {
@@ -18,7 +19,8 @@ namespace NoteAppTest
         #region TitleTest
 
         
-        [Test(Description = "Positive test for title getter.")]
+        [Test(
+            Description = "Positive test for title getter.")]
         public void TestTitleGet_CorrectValue()
         {
             var expected = "TestTitle";
@@ -27,7 +29,8 @@ namespace NoteAppTest
             Assert.That(expected, Is.EqualTo(actual));
         }
 
-        [TestCase("StringLengthIsOverThanFiftySymbolsStringLengthIsOve",
+        [TestCase(
+            "StringLengthIsOverThanFiftySymbolsStringLengthIsOve",
             "Title more over than 50 symbols.",
             TestName = "Negative test on set string with 51 length to title.")]
         public void TestTitleGet_ArgumentException(
@@ -37,9 +40,12 @@ namespace NoteAppTest
                 (() => { _note.Title = wrongTitle; }, message);
         }
         
-        [TestCase("", "Title was not empty.",
+        [TestCase(
+            "", "Title was not empty.",
             TestName = "Negative test on set empty string to title.")]
-        [TestCase(null, "Title was not null.",
+        [TestCase(
+            null, 
+            "Title was not null.",
             TestName = "Negative test on set null to title.")]
         public void TestTitleGet_ArgumentNullException(
             string wrongTitle, string message)
@@ -52,7 +58,8 @@ namespace NoteAppTest
         
         #region CategoryTest
 
-        [TestCase(TestName = "Positive test on setter for category.")]
+        [TestCase(
+            TestName = "Positive test on setter for category.")]
         public void TestCategoryGet_CorrectValue()
         {
             var expected = NoteCategory.Documents;
