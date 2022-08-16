@@ -10,7 +10,7 @@ using Google.Apis.Upload;
 
 namespace GoogleDrive
 {
-	internal class Program
+	internal class OdlProgram
 	{
 		private const string PathToServiceAccountKeyFile =
 			@"C:\Users\Artem\RiderProjects\NoteApp\noteapp-359513-256e4981656e.json";
@@ -63,7 +63,7 @@ namespace GoogleDrive
 			}
 		}
 		
-		public static void Main(string[] args)
+		public static void OldMain(string[] args)
 		{
 			SignUp();
 
@@ -76,12 +76,12 @@ namespace GoogleDrive
 			var updateFileBody = new Google.Apis.Drive.v3.Data.File()
 			{
 				Name = "update.txt"
-			};*/
+			};
 
 			// Let's add some text to our file.
 			File.AppendAllText(UploadFileName, "2");
 
-			/*// Then upload the file again with a new name and new data.
+			// Then upload the file again with a new name and new data.
 			using (var uploadStream = new FileStream(UploadFileName, FileMode.Open, FileAccess.Read))
 			{
 				// Update the file id, with new metadata and stream.
