@@ -49,5 +49,17 @@ namespace NoteAppTest
         }
         
         #endregion
+        
+        #region CategoryTest
+
+        [TestCase(TestName = "Positive test on setter for category.")]
+        public void TestCategoryGet_CorrectValue()
+        {
+            var expected = NoteCategory.Documents;
+            _note.Category = NoteCategory.Documents;
+            Assert.That(expected, Is.EqualTo(_note.Category));
+        }
+
+        #endregion
     }
 }
