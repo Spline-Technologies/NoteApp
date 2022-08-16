@@ -7,17 +7,23 @@ namespace NoteAppTest
     [TestFixture]
     public class NoteTest
     {
-        private Note note;
+        private Note _note;
+
+        [SetUp]
+        public void InitNote()
+        {
+            _note = new Note();
+        }
+
         #region TitleTest
 
         
         [Test(Description = "Positive test for title getter.")]
         public void TestTitleGet_CorrectValue()
         {
-            note = new Note();
             var expected = "TestTitle";
-            note.Title = expected;
-            var actual = note.Title;
+            _note.Title = expected;
+            var actual = _note.Title;
             Assert.That(expected, Is.EqualTo(actual));
         }
 
@@ -27,9 +33,8 @@ namespace NoteAppTest
         public void TestTitleGet_ArgumentException(
             string wrongTitle, string message )
         {
-            var note = new Note();
             Assert.Throws<ArgumentException>
-                (() => { note.Title = wrongTitle; }, message);
+                (() => { _note.Title = wrongTitle; }, message);
         }
         
         [TestCase("", "Title was not empty.",
@@ -39,12 +44,10 @@ namespace NoteAppTest
         public void TestTitleGet_ArgumentNullException(
             string wrongTitle, string message)
         {
-            var note = new Note();
             Assert.Throws<ArgumentNullException>(
-                () => { note.Title = wrongTitle; }, message);
+                () => { _note.Title = wrongTitle; }, message);
         }
         
         #endregion
-
     }
 }
