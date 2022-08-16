@@ -95,5 +95,27 @@ namespace NoteAppTest
         }
 
         #endregion
+
+        #region NoteTextTest
+
+        [TestCase(
+            "Expected note text",
+            TestName = "Positive test on getter of NoteText.")]
+        public void TestNoteTextGet_CorrectValue(string expected)
+        {
+            _note.NoteText = expected;
+            Assert.That(expected, Is.EqualTo(_note.NoteText));
+        }
+
+        [TestCase(
+            null,
+            TestName = "Negative test for setter of note text.")]
+        public void TestNoteTextSet_ArgumentNullException(string expected)
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => _note.NoteText = expected);
+        }
+
+        #endregion
     }
 }
