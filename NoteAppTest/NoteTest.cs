@@ -68,5 +68,18 @@ namespace NoteAppTest
         }
 
         #endregion
+
+        #region CreationTimeTest
+
+        [TestCase(
+            TestName = "Positive test for getter of creation time."),
+            Ignore("Can't get the same time by calling DateTime.Now() twice.")]
+        public void TestCreationTime_CorrectValue()
+        {
+            var expected = DateTime.Now;
+            Assert.That(expected, Is.EqualTo(_note.CreationTime));
+        }
+
+        #endregion
     }
 }
