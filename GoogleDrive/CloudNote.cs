@@ -93,7 +93,7 @@ namespace GoogleDrive
 			var list = new List<File>();
 			FilesResource.ListRequest request = _driveService.Files.List();
 			
-			_driveService
+			
 
 			do
 			{
