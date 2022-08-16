@@ -134,5 +134,23 @@ namespace NoteAppTest
         }
 
         #endregion
+
+        #region CloneTest
+
+        [TestCase(
+            TestName = "Test of method Clone()."),
+            Ignore("Can't get the same time by calling DateTime.Now() twice.")]
+        public void TestClone()
+        {
+            var note = (Note)_note.Clone();
+            Assert.That(note, Is.Not.Null);
+            Assert.That(note.Category, Is.EqualTo(_note.Category));
+            Assert.That(note.CreationTime, Is.EqualTo(_note.CreationTime));
+            Assert.That(note.LastModifyTime, Is.EqualTo(_note.LastModifyTime));
+            Assert.That(note.NoteText, Is.EqualTo(_note.NoteText));
+            Assert.That(note.Title, Is.EqualTo(_note.Title));
+        }
+
+        #endregion
     }
 }
