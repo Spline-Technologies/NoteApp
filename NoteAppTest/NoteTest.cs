@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.InteropServices;
 using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal;
 using Assert = NUnit.Framework.Assert;
@@ -78,6 +79,19 @@ namespace NoteAppTest
         {
             var expected = DateTime.Now;
             Assert.That(expected, Is.EqualTo(_note.CreationTime));
+        }
+
+        #endregion
+
+        #region LastModifyTimeTest
+
+        [TestCase(
+            TestName = "Positive test on getter of last modify time."),
+            Ignore("Can't get the same time by calling DateTime.Now() twice.")]
+        public void TestLastModufyTime_CorrectValue()
+        {
+            var expected = DateTime.Now;
+            Assert.That(expected, Is.EqualTo(_note.LastModifyTime));
         }
 
         #endregion
