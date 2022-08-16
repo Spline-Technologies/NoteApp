@@ -117,5 +117,22 @@ namespace NoteAppTest
         }
 
         #endregion
+
+        #region ConstructurTest
+
+        [TestCase(
+            TestName = "Constructor test."),
+            Ignore("Can't get the same time by calling DateTime.Now() twice.")]
+        public void TestConstructor()
+        {
+            Assert.That(_note.Title , Is.EqualTo("Без названия"));
+            Assert.That(_note.Category , Is.EqualTo(NoteCategory.Work));
+            var expectedTime = DateTime.Now;
+            Assert.That(_note.CreationTime, Is.EqualTo(expectedTime));
+            Assert.That(_note.LastModifyTime, Is.EqualTo(expectedTime));
+            Assert.That(_note.NoteText , Is.EqualTo(""));
+        }
+
+        #endregion
     }
 }
