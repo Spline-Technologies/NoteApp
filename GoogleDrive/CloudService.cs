@@ -47,6 +47,7 @@ public static class CloudService
 	/// <summary>
 	/// Создаёт новый файл
 	/// </summary>
+	/// <remarks>Использовать только при регистрации</remarks>
 	/// <returns>ID файла</returns>
 	public static string CreateFile()
 	{
