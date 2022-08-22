@@ -87,8 +87,6 @@ public static class CloudService
 	/// <param name="id">ID файла</param>
 	public static void Upload(string id)
 	{
-		CreateFileCopy(id);
-		
 		var fileMetadata = new File();
 		using var fileStream = new FileStream(
 			UploadFileName, FileMode.Open, FileAccess.Read);
@@ -97,21 +95,6 @@ public static class CloudService
 			fileMetadata, id, fileStream, "text/plain").Upload();
 	}
 	
-	/// <summary>
-	/// Создаёт резервную копию старого файла
-	/// </summary>
-	/// <param name="id">ID файла</param>
-	private static void CreateFileCopy(string id)
-	{
-		var fileMetadata = new File()
-		{
-			Name = id + ".old",
-			Parents = new List<string>() { DirectoryId }
-		};
-
-		_driveService.Files.Copy(fileMetadata, id).Execute();
-	}
-
 	/// <summary>
 	/// Выгружает файл с облака
 	/// </summary>
