@@ -1,4 +1,4 @@
-﻿using NoteApp;
+﻿using NoteAppCore;
 
 namespace NoteAppUI
 {
