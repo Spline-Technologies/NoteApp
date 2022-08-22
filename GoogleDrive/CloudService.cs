@@ -1,5 +1,6 @@
 ﻿namespace GoogleDrive;
 
+
 using System.Collections.Generic;
 using System.IO;
 using File = Google.Apis.Drive.v3.Data.File;
@@ -7,6 +8,10 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 
+
+/// <summary>
+/// Класс для синхронизации локальных файлов с облачными
+/// </summary>
 public static class CloudService
 {
 	//todo поменять пути к файлам
@@ -25,6 +30,9 @@ public static class CloudService
 		SignIn();
 	}
 
+	/// <summary>
+	/// Открывает доступ для работы с фалами
+	/// </summary>
 	private static void SignIn()
 	{
 		_driveService = new DriveService(
@@ -36,6 +44,10 @@ public static class CloudService
 		});
 	}
 
+	/// <summary>
+	/// Создаёт новый файл
+	/// </summary>
+	/// <returns>ID файла</returns>
 	public static string CreateFile()
 	{
 		var fileMetadata = new File()
@@ -50,32 +62,16 @@ public static class CloudService
 			fileMetadata, fileStream, "text/plain");
 		
 		request.Upload();
-
+		Rename(request.ResponseBody?.Id);
+		
 		return request.ResponseBody?.Id;
 	}
 
-	public static void Upload(string id)
-	{
-		var fileMetadata = new File();
-		using var fileStream = new FileStream(
-			UploadFileName, FileMode.Open, FileAccess.Read);
-		
-		_driveService.Files.Update(
-			fileMetadata, id, fileStream, "text/plain").Upload();
-	}
-
-	public static void Download(string id)
-	{
-		var stream = new MemoryStream();
-		_driveService.Files.Get(id).Download(stream);
-		
-		using var filestream = new FileStream(
-			UploadFileName, FileMode.Create, FileAccess.Write);
-		
-		stream.WriteTo(filestream);
-	}
-
-	public static void Rename(string id)
+	/// <summary>
+	/// Переименовывает файл в ID
+	/// </summary>
+	/// <param name="id">ID файла</param>
+	private static void Rename(string id)
 	{
 		var fileMetadata = new File()
 		{
@@ -85,7 +81,27 @@ public static class CloudService
 		_driveService.Files.Update(fileMetadata, id).Execute();
 	}
 
-	public static void CreateFileCopy(string id)
+	/// <summary>
+	/// Загружает файл в облако
+	/// </summary>
+	/// <param name="id">ID файла</param>
+	public static void Upload(string id)
+	{
+		CreateFileCopy(id);
+		
+		var fileMetadata = new File();
+		using var fileStream = new FileStream(
+			UploadFileName, FileMode.Open, FileAccess.Read);
+		
+		_driveService.Files.Update(
+			fileMetadata, id, fileStream, "text/plain").Upload();
+	}
+	
+	/// <summary>
+	/// Создаёт резервную копию старого файла
+	/// </summary>
+	/// <param name="id">ID файла</param>
+	private static void CreateFileCopy(string id)
 	{
 		var fileMetadata = new File()
 		{
@@ -94,5 +110,20 @@ public static class CloudService
 		};
 
 		_driveService.Files.Copy(fileMetadata, id).Execute();
+	}
+
+	/// <summary>
+	/// Выгружает файл с облака
+	/// </summary>
+	/// <param name="id">ID файла</param>
+	public static void Download(string id)
+	{
+		var stream = new MemoryStream();
+		_driveService.Files.Get(id).Download(stream);
+
+		using var filestream = new FileStream(
+			UploadFileName, FileMode.Create, FileAccess.Write);
+
+		stream.WriteTo(filestream);
 	}
 }
