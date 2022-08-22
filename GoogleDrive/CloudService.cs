@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Google.Apis.Download;
-using Google.Apis.Drive.v3.Data;
-using Google.Apis.Upload;
-using File = Google.Apis.Drive.v3.Data.File;
+using System.Resources;
 
 namespace GoogleDrive;
 
+using System.Collections.Generic;
+using System.IO;
+using File = Google.Apis.Drive.v3.Data.File;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
@@ -22,8 +20,13 @@ public static class CloudService
 		@"C:\Users\Artem\RiderProjects\NoteApp\NoteApp.notes";
 
 	private const string DirectoryId = "1DFPage9cKRuuJ-7MkZOEc2VfqoAn3876";
-
 	private static DriveService _driveService;
+
+
+	static CloudService()
+	{
+		SignIn();
+	}
 
 	private static void SignIn()
 	{
@@ -34,9 +37,21 @@ public static class CloudService
 		});
 	}
 
-	static CloudService()
+	public static string CreateFile()
 	{
-		SignIn();
+		var fileMetadata = new File()
+		{
+			Parents = new List<string>() { DirectoryId }
+		};
+
+		using var fileStream = new FileStream(UploadFileName, FileMode.Create, FileAccess.ReadWrite);
+
+		var request = _driveService.Files.Create(fileMetadata, fileStream, "text/plain");
+		//request.Fields = "*";
+		//var results = await request.UploadAsync(CancellationToken.None);
+		request.Upload();
+
+		return request.ResponseBody?.Id;
 	}
 
 	public static void Upload(string id)
@@ -44,7 +59,7 @@ public static class CloudService
 		var fileMetadata = new File();
 		using var fileStream = new FileStream(UploadFileName, FileMode.Open, FileAccess.Read);
 		var request = _driveService.Files.Update(fileMetadata, id, fileStream, "text/plain");
-		request.Fields = "*";
+		//request.Fields = "*";
 		//var results = await request.UploadAsync(CancellationToken.None);
 		request.Upload();
 	}
@@ -53,33 +68,33 @@ public static class CloudService
 	{
 		var request = _driveService.Files.Get(id);
 		var stream = new MemoryStream();
-		using var filestream = new FileStream(UploadFileName, FileMode.Create, FileAccess.Write);	
-		
+		using var filestream = new FileStream(UploadFileName, FileMode.Create, FileAccess.Write);
+
 		request.Download(stream);
 		stream.WriteTo(filestream);
 	}
 
-
-	public static string CreateFile()
+	public static void Rename(string id)
 	{
-		var fileMetadata = new Google.Apis.Drive.v3.Data.File()
+		var fileMetadata = new File()
 		{
-			//todo в имя файла пихать user id
-			Name = "Тест апп.txt",
+			Name = id
+		};
+
+		var request = _driveService.Files.Update(fileMetadata, id);
+		//request.Fields = "*";
+		//var results = await request.UploadAsync(CancellationToken.None);
+		request.Execute();
+	}
+
+	public static void CreateFileCopy(string id)
+	{
+		var fileMetadata = new File()
+		{
+			Name = id + ".old",
 			Parents = new List<string>() { DirectoryId }
 		};
 
-		using var fileStream = new FileStream(UploadFileName, FileMode.Open, FileAccess.Read);
-
-		var request = _driveService.Files.Create(fileMetadata, fileStream, "text/plain");
-		request.Fields = "*";
-		//var results = await request.UploadAsync(CancellationToken.None);
-		request.Upload();
-
-		return request.ResponseBody?.Id;
+		_driveService.Files.Copy(fileMetadata, id).Execute();
 	}
-
-
-	//ри регистрации создаётся файл и загружается
-	// при входе файл загружается
 }
