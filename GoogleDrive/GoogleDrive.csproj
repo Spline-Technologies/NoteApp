@@ -63,6 +63,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="CloudNote.cs" />
+        <Compile Include="CloudService.cs" />
         <Compile Include="OdlProgram.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
