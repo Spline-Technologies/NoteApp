@@ -43,7 +43,7 @@ namespace NoteAppUI
             this.categoryTypeLabel = new System.Windows.Forms.Label();
             this.noteListBox = new System.Windows.Forms.ListBox();
             this.modifiedDateLabel = new System.Windows.Forms.Label();
-            this.modifiedTextLAbel = new System.Windows.Forms.Label();
+            this.modifiedTextLabel = new System.Windows.Forms.Label();
             this.createdDateLabel = new System.Windows.Forms.Label();
             this.createdTextLabel = new System.Windows.Forms.Label();
             this.noteTitleLabel = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@ namespace NoteAppUI
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -93,7 +93,7 @@ namespace NoteAppUI
             // addNoteToolStripMenuItem
             // 
             this.addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
-            this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.addNoteToolStripMenuItem.Text = "Add note";
             // 
             // helpToolStripMenuItem
@@ -107,7 +107,7 @@ namespace NoteAppUI
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(164, 34);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -127,7 +127,7 @@ namespace NoteAppUI
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.modifiedDateLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.modifiedTextLAbel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.modifiedTextLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.createdDateLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.createdTextLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.noteTitleLabel);
@@ -176,25 +176,25 @@ namespace NoteAppUI
             // modifiedDateLabel
             // 
             this.modifiedDateLabel.AutoSize = true;
-            this.modifiedDateLabel.Location = new System.Drawing.Point(325, 53);
+            this.modifiedDateLabel.Location = new System.Drawing.Point(371, 53);
             this.modifiedDateLabel.Name = "modifiedDateLabel";
             this.modifiedDateLabel.Size = new System.Drawing.Size(80, 25);
             this.modifiedDateLabel.TabIndex = 5;
             this.modifiedDateLabel.Text = "02.01.22";
             // 
-            // modifiedTextLAbel
+            // modifiedTextLabel
             // 
-            this.modifiedTextLAbel.AutoSize = true;
-            this.modifiedTextLAbel.Location = new System.Drawing.Point(231, 53);
-            this.modifiedTextLAbel.Name = "modifiedTextLAbel";
-            this.modifiedTextLAbel.Size = new System.Drawing.Size(88, 25);
-            this.modifiedTextLAbel.TabIndex = 4;
-            this.modifiedTextLAbel.Text = "Modified:";
+            this.modifiedTextLabel.AutoSize = true;
+            this.modifiedTextLabel.Location = new System.Drawing.Point(287, 53);
+            this.modifiedTextLabel.Name = "modifiedTextLabel";
+            this.modifiedTextLabel.Size = new System.Drawing.Size(88, 25);
+            this.modifiedTextLabel.TabIndex = 4;
+            this.modifiedTextLabel.Text = "Modified:";
             // 
             // createdDateLabel
             // 
             this.createdDateLabel.AutoSize = true;
-            this.createdDateLabel.Location = new System.Drawing.Point(103, 53);
+            this.createdDateLabel.Location = new System.Drawing.Point(93, 53);
             this.createdDateLabel.Name = "createdDateLabel";
             this.createdDateLabel.Size = new System.Drawing.Size(80, 25);
             this.createdDateLabel.TabIndex = 3;
@@ -267,7 +267,7 @@ namespace NoteAppUI
         private ToolStripMenuItem addNoteToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
         private Label modifiedDateLabel;
-        private Label modifiedTextLAbel;
+        private Label modifiedTextLabel;
         private Label createdDateLabel;
         private Label createdTextLabel;
         private Label noteTitleLabel;

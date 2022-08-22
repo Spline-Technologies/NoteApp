@@ -17,7 +17,7 @@ namespace NoteAppUI
             noteTitleLabel.Visible = isVisible;
             createdTextLabel.Visible = isVisible;
             createdDateLabel.Visible = isVisible;
-            modifiedTextLAbel.Visible = isVisible;
+            modifiedTextLabel.Visible = isVisible;
             modifiedDateLabel.Visible = isVisible;
             noteTextBox.Visible = isVisible;
         }
@@ -35,21 +35,25 @@ namespace NoteAppUI
         private void addNewNoteButton_Click(object sender, EventArgs e)
         {
             var note = new Note();
+
             _notes.Add(note);
-            noteListBox.Items.Add(note);
+            noteListBox.Items.Add(note.Title);
+
             _selectedNote = note;
-            noteListBox_SelectedIndexChanged(sender, e);
+            noteListBox.SelectedIndex = noteListBox.Items.Count - 1;
+            noteListBox.Text = _selectedNote.Title;
         }
 
         private void noteListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedNote = _notes[noteListBox.SelectedIndex];
             noteTitleLabel.Text = _selectedNote.Title;
-            createdDateLabel.Text = 
+            createdDateLabel.Text =
                 Convert.ToString(_selectedNote.CreationTime);
-            modifiedDateLabel.Text = 
+            modifiedDateLabel.Text =
                 Convert.ToString(_selectedNote.LastModifyTime);
             noteTextBox.Text = Convert.ToString(_selectedNote.NoteText);
+            SetNoteDescriptionVisibility(true);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
