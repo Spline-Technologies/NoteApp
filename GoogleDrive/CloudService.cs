@@ -27,9 +27,11 @@ public static class CloudService
 
 	private static void SignIn()
 	{
-		_driveService = new DriveService(new BaseClientService.Initializer()
+		_driveService = new DriveService(
+			new BaseClientService.Initializer()
 		{
-			HttpClientInitializer = GoogleCredential.FromFile(PathToServiceAccountKeyFile)
+			HttpClientInitializer = GoogleCredential
+				.FromFile(PathToServiceAccountKeyFile)
 				.CreateScoped(DriveService.ScopeConstants.Drive)
 		});
 	}
@@ -41,9 +43,12 @@ public static class CloudService
 			Parents = new List<string>() { DirectoryId }
 		};
 
-		using var fileStream = new FileStream(UploadFileName, FileMode.Create, FileAccess.ReadWrite);
+		using var fileStream = new FileStream(UploadFileName, 
+			FileMode.Create, FileAccess.ReadWrite);
 
-		var request = _driveService.Files.Create(fileMetadata, fileStream, "text/plain");
+		var request = _driveService.Files.Create(
+			fileMetadata, fileStream, "text/plain");
+		
 		request.Upload();
 
 		return request.ResponseBody?.Id;
@@ -52,8 +57,11 @@ public static class CloudService
 	public static void Upload(string id)
 	{
 		var fileMetadata = new File();
-		using var fileStream = new FileStream(UploadFileName, FileMode.Open, FileAccess.Read);
-		_driveService.Files.Update(fileMetadata, id, fileStream, "text/plain").Upload();
+		using var fileStream = new FileStream(
+			UploadFileName, FileMode.Open, FileAccess.Read);
+		
+		_driveService.Files.Update(
+			fileMetadata, id, fileStream, "text/plain").Upload();
 	}
 
 	public static void Download(string id)
@@ -61,7 +69,9 @@ public static class CloudService
 		var stream = new MemoryStream();
 		_driveService.Files.Get(id).Download(stream);
 		
-		using var filestream = new FileStream(UploadFileName, FileMode.Create, FileAccess.Write);
+		using var filestream = new FileStream(
+			UploadFileName, FileMode.Create, FileAccess.Write);
+		
 		stream.WriteTo(filestream);
 	}
 
