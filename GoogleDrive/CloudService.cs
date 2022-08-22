@@ -1,7 +1,4 @@
-﻿using System;
-using System.Resources;
-
-namespace GoogleDrive;
+﻿namespace GoogleDrive;
 
 using System.Collections.Generic;
 using System.IO;
@@ -47,8 +44,6 @@ public static class CloudService
 		using var fileStream = new FileStream(UploadFileName, FileMode.Create, FileAccess.ReadWrite);
 
 		var request = _driveService.Files.Create(fileMetadata, fileStream, "text/plain");
-		//request.Fields = "*";
-		//var results = await request.UploadAsync(CancellationToken.None);
 		request.Upload();
 
 		return request.ResponseBody?.Id;
@@ -58,19 +53,15 @@ public static class CloudService
 	{
 		var fileMetadata = new File();
 		using var fileStream = new FileStream(UploadFileName, FileMode.Open, FileAccess.Read);
-		var request = _driveService.Files.Update(fileMetadata, id, fileStream, "text/plain");
-		//request.Fields = "*";
-		//var results = await request.UploadAsync(CancellationToken.None);
-		request.Upload();
+		_driveService.Files.Update(fileMetadata, id, fileStream, "text/plain").Upload();
 	}
 
 	public static void Download(string id)
 	{
-		var request = _driveService.Files.Get(id);
 		var stream = new MemoryStream();
+		_driveService.Files.Get(id).Download(stream);
+		
 		using var filestream = new FileStream(UploadFileName, FileMode.Create, FileAccess.Write);
-
-		request.Download(stream);
 		stream.WriteTo(filestream);
 	}
 
@@ -81,10 +72,7 @@ public static class CloudService
 			Name = id
 		};
 
-		var request = _driveService.Files.Update(fileMetadata, id);
-		//request.Fields = "*";
-		//var results = await request.UploadAsync(CancellationToken.None);
-		request.Execute();
+		_driveService.Files.Update(fileMetadata, id).Execute();
 	}
 
 	public static void CreateFileCopy(string id)
